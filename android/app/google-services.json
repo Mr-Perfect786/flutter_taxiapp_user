@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "858405846668",
+    "firebase_url": "https://bennebostaxinew-default-rtdb.firebaseio.com",
+    "project_id": "bennebostaxinew",
+    "storage_bucket": "bennebostaxinew.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858405846668:android:62c6f96df47a196c17c5a9",
+        "android_client_info": {
+          "package_name": "com.bennebos.driversuser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "858405846668-mru46fbi95scvitd8kgj08t4caldtbn4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bennebos.driversuser",
+            "certificate_hash": "0c2b28c0e9456729626490e118d8a9cfaa44776d"
+          }
+        },
+        {
+          "client_id": "858405846668-peqcfdh899bm8acro4mn12qoqtkn177p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bennebos.driversuser",
+            "certificate_hash": "bdf7ddc6e80d85d4e43735f93ece9a5141e98cb1"
+          }
+        },
+        {
+          "client_id": "858405846668-1r34njt19ddgobbume6ibiqdqmf08hn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGNOozMbTFzk9xj9Wt2Edi1zxWvLbUdzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "858405846668-1r34njt19ddgobbume6ibiqdqmf08hn1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858405846668:android:b0e17969d937869417c5a9",
+        "android_client_info": {
+          "package_name": "com.bennebos.taxiuser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "858405846668-2ig6npstd9jnm0rh5pbkifl76kspmidi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bennebos.taxiuser",
+            "certificate_hash": "0f92c041d01830421912d20990dcf1f8d0e35a49"
+          }
+        },
+        {
+          "client_id": "858405846668-1r34njt19ddgobbume6ibiqdqmf08hn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGNOozMbTFzk9xj9Wt2Edi1zxWvLbUdzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "858405846668-1r34njt19ddgobbume6ibiqdqmf08hn1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
