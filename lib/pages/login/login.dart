@@ -85,16 +85,18 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
     resendTime = null;
 
     resendTime = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        if (resendTimer > 0) {
-          resendTimer--;
-        } else {
-          _resend = true;
-          resendTime?.cancel();
-          timer.cancel();
-          resendTime = null;
-        }
-      });
+      if (mounted) {
+        setState(() {
+          if (resendTimer > 0) {
+            resendTimer--;
+          } else {
+            _resend = true;
+            resendTime?.cancel();
+            timer.cancel();
+            resendTime = null;
+          }
+        });
+      }
     });
   }
 
@@ -315,16 +317,17 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
                                                     height: media.height * 0.02,
                                                   ),
                                                   SizedBox(
-                                                      width: media.width * 0.6,
-                                                      child: MyText(
-                                                        text: loginImages[k]
-                                                            ['description'],
-                                                        size: media.height *
-                                                            0.015,
-                                                        maxLines: 4,
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                      )),
+                                                    width: media.width * 0.6,
+                                                    child: MyText(
+                                                      text: loginImages[k]
+                                                          ['description'],
+                                                      size:
+                                                          media.height * 0.015,
+                                                      maxLines: 4,
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                  ),
                                                 ],
                                               ),
                                             ))
@@ -989,8 +992,9 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
                                                 if (withOtp == false ||
                                                     signIn == 1)
                                                   IconButton(
-                                                      onPressed: () async  {
-                                                        await SmsAutoFill().listenForCode();
+                                                      onPressed: () async {
+                                                        await SmsAutoFill()
+                                                            .listenForCode();
 
                                                         setState(() {
                                                           if (showPassword) {
@@ -2093,7 +2097,8 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
                                         child: (_resend == true)
                                             ? TextButton(
                                                 onPressed: () async {
-                                                  await SmsAutoFill().listenForCode();
+                                                  await SmsAutoFill()
+                                                      .listenForCode();
 
                                                   var exist = true;
                                                   if (forgotPassword == true) {

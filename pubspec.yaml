@@ -67,8 +67,15 @@ dependencies:
   geocoding:
   flutter_google_places_sdk: 
   sms_autofill:
+  
 
 dev_dependencies:
+ flutter_launcher_icons: ^0.14.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
   flutter_test:
     sdk: flutter
 
