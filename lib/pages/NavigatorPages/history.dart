@@ -522,14 +522,13 @@ class _HistoryState extends State<History> {
                                                                     MyText(
                                                                         text: (myHistory[i]['is_bid_ride'] ==
                                                                                 1)
-                                                                            ? myHistory[i]['accepted_ride_fare'].toString() +
-                                                                                ' ' +
+                                                                            ? '${myHistory[i]['accepted_ride_fare']} ' +
                                                                                 myHistory[i]['requested_currency_symbol']
                                                                             : (myHistory[i]['is_completed'] == 1)
-                                                                                ? myHistory[i]['requestBill']['data']['total_amount'].toString() + ' ' + myHistory[i]['requestBill']['data']['requested_currency_symbol']
-                                                                                : myHistory[i]['request_eta_amount'].toString() + ' ' + myHistory[i]['requested_currency_symbol'],
+                                                                                ? '${myHistory[i]['requestBill']['data']['total_amount']} ' + myHistory[i]['requestBill']['data']['requested_currency_symbol']
+                                                                                : '${myHistory[i]['request_eta_amount']} ' + myHistory[i]['requested_currency_symbol'],
                                                                         fontweight: FontWeight.bold,
-                                                                        color:Colors.green,
+                                                                        color: Colors.green,
                                                                         size: media.width * fourteen),
                                                                   ],
                                                                 )
