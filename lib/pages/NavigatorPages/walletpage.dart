@@ -426,8 +426,14 @@ class _WalletPageState extends State<WalletPage> {
                                                                     .end,
                                                             children: [
                                                               MyText(
-                                                                text:
-                                                                    '${walletHistory[i]['amount']} ${walletHistory[i]['currency_symbol']}',
+                                                                text: walletHistory[
+                                                                            i][
+                                                                        'amount'].toString() +
+                                                                    ' ' +
+                                                                    walletHistory[i]
+                                                                            [
+                                                                            'currency_symbol']
+                                                                        .toString(),
                                                                 size: media
                                                                         .width *
                                                                     twelve,
@@ -822,8 +828,8 @@ class _WalletPageState extends State<WalletPage> {
                                                                     Alignment
                                                                         .center,
                                                                 child: MyText(
-                                                                  text: walletBalance[
-                                                                          'currency_symbol'] +
+                                                                  text: walletBalance
+                                                                    ['currency_symbol'] +
                                                                       '100',
                                                                   size: media
                                                                           .width *

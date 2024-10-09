@@ -2,6 +2,7 @@
 
 import 'dart:async';
 import 'dart:io';
+
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -31,12 +32,7 @@ class Login extends StatefulWidget {
 //code as int for getting phone dial code of choosen country
 String phnumber = ''; // phone number as string entered in input field
 // String phone = '';
-List pages = [
-  1,
-  2,
-  3,
-  4,
-];
+List pages = [1, 2, 3, 4];
 List images = [];
 int currentPage = 0;
 
@@ -88,12 +84,7 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
     resendTime?.cancel();
     resendTime = null;
 
-    resendTime = Timer.periodic(
-        const Duration(
-          seconds: 1,
-        ), (
-      timer,
-    ) {
+    resendTime = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (resendTimer > 0) {
           resendTimer--;
@@ -565,126 +556,124 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
                                 child: Column(
                                   children: [
                                     AnimatedCrossFade(
-                                      firstChild: Container(),
-                                      secondChild: Column(
-                                        children: [
-                                          InkWell(
-                                            onTap: () {
-                                              setState(() {
-                                                pickImage = true;
-                                              });
-                                            },
-                                            child: Stack(
-                                              children: [
-                                                Container(
-                                                  height: media.width * 0.2,
-                                                  width: media.width * 0.2,
-                                                  decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                      color: Colors.white,
-                                                      image: (proImageFile1 ==
-                                                              null)
-                                                          ? const DecorationImage(
-                                                              image: AssetImage(
-                                                                'assets/images/default-profile-picture.jpeg',
-                                                              ),
-                                                              fit: BoxFit.cover)
-                                                          : DecorationImage(
-                                                              image: FileImage(File(
-                                                                  proImageFile1)),
-                                                              fit: BoxFit
-                                                                  .cover)),
-                                                  // padding: EdgeInsets.only(right: media.width*0.025,left:media.width*0.025 ),
-                                                  // child: TextField(
+                                        firstChild: Container(),
+                                        secondChild: Column(
+                                          children: [
+                                            InkWell(
+                                              onTap: () {
+                                                setState(() {
+                                                  pickImage = true;
+                                                });
+                                              },
+                                              child: Stack(
+                                                children: [
+                                                  Container(
+                                                    height: media.width * 0.2,
+                                                    width: media.width * 0.2,
+                                                    decoration: BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                        color: Colors.white,
+                                                        image: (proImageFile1 ==
+                                                                null)
+                                                            ? const DecorationImage(
+                                                                image:
+                                                                    AssetImage(
+                                                                  'assets/images/default-profile-picture.jpeg',
+                                                                ),
+                                                                fit: BoxFit
+                                                                    .cover)
+                                                            : DecorationImage(
+                                                                image: FileImage(
+                                                                    File(
+                                                                        proImageFile1)),
+                                                                fit: BoxFit
+                                                                    .cover)),
+                                                    // padding: EdgeInsets.only(right: media.width*0.025,left:media.width*0.025 ),
+                                                    // child: TextField(
 
-                                                  //   decoration: InputDecoration(
-                                                  //     hintText: 'Mobile',
-                                                  //     border: InputBorder.none
-                                                  //   ),
-                                                  // ),
-                                                ),
-                                                Positioned(
-                                                  bottom: 0,
-                                                  right: 0,
-                                                  child: Container(
-                                                    padding: EdgeInsets.all(
-                                                        media.width * 0.015),
-                                                    decoration:
-                                                        const BoxDecoration(
-                                                            shape:
-                                                                BoxShape.circle,
-                                                            color: Colors.grey),
-                                                    child: Icon(
-                                                      Icons.edit,
-                                                      size: media.width * 0.025,
-                                                    ),
+                                                    //   decoration: InputDecoration(
+                                                    //     hintText: 'Mobile',
+                                                    //     border: InputBorder.none
+                                                    //   ),
+                                                    // ),
                                                   ),
-                                                ),
-                                              ],
+                                                  Positioned(
+                                                      bottom: 0,
+                                                      right: 0,
+                                                      child: Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  media.width *
+                                                                      0.015),
+                                                          decoration:
+                                                              const BoxDecoration(
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                  color: Colors
+                                                                      .grey),
+                                                          child: Icon(
+                                                            Icons.edit,
+                                                            size: media.width *
+                                                                0.025,
+                                                          )))
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                          SizedBox(
-                                            height: media.width * 0.05,
-                                          ),
-                                        ],
-                                      ),
-                                      crossFadeState: (signIn == 0)
-                                          ? CrossFadeState.showFirst
-                                          : CrossFadeState.showSecond,
-                                      duration: const Duration(
-                                        milliseconds: 200,
-                                      ),
-                                    ),
+                                            SizedBox(
+                                              height: media.width * 0.05,
+                                            ),
+                                          ],
+                                        ),
+                                        crossFadeState: (signIn == 0)
+                                            ? CrossFadeState.showFirst
+                                            : CrossFadeState.showSecond,
+                                        duration:
+                                            const Duration(milliseconds: 200)),
 
                                     AnimatedCrossFade(
-                                      firstChild: Container(),
-                                      secondChild: Column(
-                                        children: [
-                                          Container(
-                                            height: media.width * 0.12,
-                                            width: media.width * 0.8,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                color: Colors.white),
-                                            padding: EdgeInsets.only(
-                                                right: media.width * 0.025,
-                                                left: media.width * 0.025),
-                                            child: TextField(
-                                              controller: _name,
-                                              decoration: InputDecoration(
-                                                  hintText:
-                                                      languages[choosenLanguage]
-                                                          ['text_name'],
-                                                  border: InputBorder.none),
+                                        firstChild: Container(),
+                                        secondChild: Column(
+                                          children: [
+                                            Container(
+                                              height: media.width * 0.12,
+                                              width: media.width * 0.8,
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  color: Colors.white),
+                                              padding: EdgeInsets.only(
+                                                  right: media.width * 0.025,
+                                                  left: media.width * 0.025),
+                                              child: TextField(
+                                                controller: _name,
+                                                decoration: InputDecoration(
+                                                    hintText: languages[
+                                                            choosenLanguage]
+                                                        ['text_name'],
+                                                    border: InputBorder.none),
+                                              ),
                                             ),
-                                          ),
-                                          SizedBox(
-                                            height: media.width * 0.05,
-                                          ),
-                                        ],
-                                      ),
-                                      crossFadeState: (signIn == 0)
-                                          ? CrossFadeState.showFirst
-                                          : CrossFadeState.showSecond,
-                                      duration: const Duration(
-                                        milliseconds: 200,
-                                      ),
-                                    ),
+                                            SizedBox(
+                                              height: media.width * 0.05,
+                                            ),
+                                          ],
+                                        ),
+                                        crossFadeState: (signIn == 0)
+                                            ? CrossFadeState.showFirst
+                                            : CrossFadeState.showSecond,
+                                        duration:
+                                            const Duration(milliseconds: 200)),
 
                                     Container(
                                       height: media.width * 0.12,
                                       width: media.width * 0.8,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          8,
-                                        ),
-                                        color: Colors.white,
-                                      ),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          color: Colors.white),
                                       padding: EdgeInsets.only(
-                                        right: media.width * 0.025,
-                                        left: media.width * 0.025,
-                                      ),
+                                          right: media.width * 0.025,
+                                          left: media.width * 0.025),
                                       child: Row(
                                         children: [
                                           if (isLoginemail == false &&
@@ -1000,9 +989,8 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
                                                 if (withOtp == false ||
                                                     signIn == 1)
                                                   IconButton(
-                                                      onPressed: () async {
-                                                        await SmsAutoFill()
-                                                            .listenForCode();
+                                                      onPressed: () async  {
+                                                        await SmsAutoFill().listenForCode();
 
                                                         setState(() {
                                                           if (showPassword) {
@@ -2105,8 +2093,7 @@ class _LoginState extends State<Login> with TickerProviderStateMixin {
                                         child: (_resend == true)
                                             ? TextButton(
                                                 onPressed: () async {
-                                                  await SmsAutoFill()
-                                                      .listenForCode();
+                                                  await SmsAutoFill().listenForCode();
 
                                                   var exist = true;
                                                   if (forgotPassword == true) {

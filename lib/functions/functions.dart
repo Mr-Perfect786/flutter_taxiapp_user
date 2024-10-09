@@ -1,4 +1,4 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers, unrelated_type_equality_checks
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'dart:convert';
 import 'dart:io';
@@ -42,11 +42,8 @@ bool internet = true;
 int waitingTime = 0;
 
 //base url
-String url =
-    'https://bennebostaxi.com/public/'; //add '/' at the end of the url as 'https://url.com/'
-String mapkey = Platform.isAndroid
-    ? 'AIzaSyBUB-XEC_v0HTMTozMwsHAzaBsaerE-x24'
-    : 'ios map key';
+String url = 'https://bennebostaxi.com/public/'; //add '/' at the end of the url as 'https://url.com/'
+String mapkey = Platform.isAndroid ? 'AIzaSyBUB-XEC_v0HTMTozMwsHAzaBsaerE-x24' : 'ios map key';
 String mapType = '';
 
 //check internet connection

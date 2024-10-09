@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'dart:async';
 import 'dart:math';
 import 'dart:ui' as ui;
@@ -1153,7 +1151,7 @@ class _MapsState extends State<Maps>
                                                                           if (l ==
                                                                               false) {
                                                                             _centerLocation =
-                                                                                LatLng(p.center.latitude, p.center.longitude);
+                                                                                LatLng(p.center!.latitude, p.center!.longitude);
                                                                             setState(() {});
 
                                                                             var val =
@@ -1175,7 +1173,8 @@ class _MapsState extends State<Maps>
                                                                             }
                                                                           }
                                                                         },
-                                                                        // interactiveFlags: ~fm.InteractiveFlag.doubleTapZoom,
+                                                                        // ignore: deprecated_member_use
+                                                                        interactiveFlags: ~fm.InteractiveFlag.doubleTapZoom,
                                                                         initialCenter: fmlt.LatLng(center.latitude, center.longitude),
                                                                         initialZoom: 16,
                                                                         onTap: (P, L) {}),

@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart' as geolocs;
 import 'package:google_fonts/google_fonts.dart';
@@ -316,9 +314,10 @@ class _DropLocationState extends State<DropLocation>
                                         onPositionChanged: (p, l) async {
                                           if (l == false) {
                                             _centerLocation = LatLng(
-                                                p.center.latitude,
-                                                p.center.longitude);
+                                                p.center!.latitude,
+                                                p.center!.longitude);
                                             setState(() {});
+
                                             var val = await geoCoding(
                                                 _centerLocation.latitude,
                                                 _centerLocation.longitude);
@@ -327,8 +326,9 @@ class _DropLocationState extends State<DropLocation>
                                             }
                                           }
                                         },
-                                        // interactiveFlags:
-                                        //     ~fm.InteractiveFlag.doubleTapZoom,
+                                        // ignore: deprecated_member_use
+                                        interactiveFlags:
+                                            ~fm.InteractiveFlag.doubleTapZoom,
                                         initialCenter: fmlt.LatLng(
                                             center.latitude, center.longitude),
                                         initialZoom: 16,

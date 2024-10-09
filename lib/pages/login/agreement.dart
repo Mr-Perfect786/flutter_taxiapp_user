@@ -146,8 +146,7 @@ class _AggreementPageState extends State<AggreementPage> {
                                       ),
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () {
-                                          openBrowser(
-                                              'https://bennebostaxi.com/public/');
+                                          openBrowser('https://bennebostaxi.com/public/');
                                         }),
                                 ],
                               ),
@@ -246,6 +245,7 @@ class _AggreementPageState extends State<AggreementPage> {
                               loginLoading = true;
                               _error = '';
                             });
+
                             valueNotifierLogin.incrementNotifier();
                             var register = await registerUser();
                             if (register == 'true') {

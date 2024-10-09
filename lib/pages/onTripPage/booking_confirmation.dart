@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
@@ -1329,10 +1327,10 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                 return fm.FlutterMap(
                                                   mapController: _fmController,
                                                   options: fm.MapOptions(
-                                                      // interactiveFlags:
-                                                      //  ~fm
-                                                      //     .InteractiveFlag
-                                                      //     .doubleTapZoom,
+                                                      // ignore: deprecated_member_use
+                                                      interactiveFlags: ~fm
+                                                          .InteractiveFlag
+                                                          .doubleTapZoom,
                                                       initialCenter:
                                                           fmlt.LatLng(
                                                               _center.latitude,
@@ -2507,24 +2505,26 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                                                         mainAxisAlignment: MainAxisAlignment.end,
                                                                                                                                         children: [
                                                                                                                                           Text(
-                                                                                                                                            etaDetails[i]['total'].toString()
+                                                                                                                                            etaDetails[i] ['total'].toString()
 
                                                                                                                                             // : (daysDifferenceRoundedUp != 0) ? (double.parse(etaDetails[i]['total'].toString()) * daysDifferenceRoundedUp).toStringAsFixed(2) : etaDetails[i]['total'].toStringAsFixed(2)} ${etaDetails[i]['currency']}'
 
                                                                                                                                             // daysDifferenceRoundedUp    etaDetails[i]['total'].toStringAsFixed(2) +
                                                                                                                                             ,
                                                                                                                                             style: GoogleFonts.notoSans(
-                                                                                                                                                height: 1.2,
+                                                                                                                                                                                                                                                                                               height: 1.2,
+
                                                                                                                                                 fontWeight: FontWeight.w700,
                                                                                                                                                 color: (choosenVehicle != i)
                                                                                                                                                     ? (isDarkTheme == true)
                                                                                                                                                         ? Colors.white
                                                                                                                                                         : textColor
-                                                                                                                                                    : Colors.green),
+                                                                                                                                                    :  Colors.green),
                                                                                                                                           ),
-                                                                                                                                          const SizedBox(width: 5, height: 10),
+                                                                                                                                          SizedBox(width: 5, height: 10),
                                                                                                                                           Text(
-                                                                                                                                            etaDetails[i]['currency'].toString()
+
+                                                                                                                                                etaDetails[i]['currency'].toString()
                                                                                                                                             // : (daysDifferenceRoundedUp != 0) ? (double.parse(etaDetails[i]['total'].toString()) * daysDifferenceRoundedUp).toStringAsFixed(2) : etaDetails[i]['total'].toStringAsFixed(2)} ${etaDetails[i]['currency']}'
 
                                                                                                                                             // daysDifferenceRoundedUp    etaDetails[i]['total'].toStringAsFixed(2) +
@@ -2534,8 +2534,8 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                                                                                 fontWeight: FontWeight.w700,
                                                                                                                                                 color: (choosenVehicle != i)
                                                                                                                                                     ? (isDarkTheme == true)
-                                                                                                                                                        ? Colors.white
-                                                                                                                                                        : textColor
+                                                                                                                                                    ? Colors.white
+                                                                                                                                                    : textColor
                                                                                                                                                     : Colors.green),
                                                                                                                                           ),
                                                                                                                                         ],
@@ -3114,6 +3114,7 @@ class _BookingConfirmationState extends State<BookingConfirmation>
                                                                                               // mainAxisAlignment: MainAxisAlignment.center,
                                                                                               children: [
                                                                                                 (etaDetails[choosenVehicle]['payment_type'].toString().split(',').toList()[payingVia] == 'cash')
+
                                                                                                     ? Image.asset(
                                                                                                         'assets/images/cash.png',
                                                                                                         width: media.width * 0.07,

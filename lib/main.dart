@@ -8,12 +8,9 @@ import 'package:flutter/services.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
-    [
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ],
-  );
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await Firebase.initializeApp();
+
 
   checkInternetConnection();
   initMessaging();
@@ -29,26 +26,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     platform = Theme.of(context).platform;
     return GestureDetector(
-      onTap: () {
-        // Remove keyboard on touching anywhere on the screen.
-        FocusScopeNode currentFocus = FocusScope.of(context);
+        onTap: () {
+          //remove keyboard on touching anywhere on the screen.
+          FocusScopeNode currentFocus = FocusScope.of(context);
 
-        if (!currentFocus.hasPrimaryFocus) {
-          currentFocus.unfocus();
-          FocusManager.instance.primaryFocus?.unfocus();
-        }
-      },
-      child: ValueListenableBuilder(
-        valueListenable: valueNotifierBook.value,
-        builder: (context, value, child) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Bennebos',
-            theme: ThemeData(),
-            home: const LoadingPage(),
-          );
+          if (!currentFocus.hasPrimaryFocus) {
+            currentFocus.unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          }
         },
-      ),
-    );
+        child: ValueListenableBuilder(
+            valueListenable: valueNotifierBook.value,
+            builder: (context, value, child) {
+              return MaterialApp(
+                  debugShowCheckedModeBanner: false,
+                  title: 'Bennebos',
+                  theme: ThemeData(),
+                  home: const LoadingPage());
+            }));
   }
 }

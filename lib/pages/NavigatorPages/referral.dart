@@ -139,7 +139,7 @@ class _ReferralPageState extends State<ReferralPage> {
                                       children: [
                                         MyText(
                                           text: languages[choosenLanguage]
-                                              ['referral_comission_string'],
+                                          ['referral_comission_string'],
                                           size: media.width * sixteen,
                                           textAlign: TextAlign.center,
                                           fontweight: FontWeight.w600,
