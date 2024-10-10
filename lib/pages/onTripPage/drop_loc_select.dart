@@ -941,7 +941,7 @@ class _DropLocationState extends State<DropLocation>
                                                     buyerName.text = '';
                                                     buyerNumber.text = '';
                                                   }
-                                                });
+                                                },);
                                               },
                                               child: Row(
                                                 children: [
@@ -2085,7 +2085,6 @@ class _DropLocationState extends State<DropLocation>
                               ),
                             ))
                           : Container(),
-
                       //loader
                       (_isLoading == true)
                           ? const Positioned(child: Loading())
