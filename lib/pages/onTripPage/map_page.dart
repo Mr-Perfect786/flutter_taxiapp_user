@@ -4395,13 +4395,14 @@ class _MapsState extends State<Maps>
         //New marker location
 
         carMarker = Marker(
-            markerId: MarkerId(markerid),
-            position: newPos,
-            icon: icon,
-            anchor: const Offset(0.5, 0.5),
-            flat: true,
-            rotation: bearing,
-            draggable: false);
+          markerId: MarkerId(markerid),
+          position: newPos,
+          icon: icon,
+          anchor: const Offset(0.5, 0.5),
+          flat: true,
+          rotation: bearing,
+          draggable: false,
+        );
 
         //Adding new marker to our list and updating the google map UI.
 
