@@ -62,7 +62,7 @@ dependencies:
   device_info_plus: 
   pinput: 
   intl: 
-  animated_text_kit: 
+  animated_text_kit:
   flutter_map: ^6.1.0
   geocoding:
   flutter_google_places_sdk: 
@@ -78,7 +78,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
