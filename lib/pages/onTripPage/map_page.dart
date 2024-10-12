@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:async';
 import 'dart:math';
 import 'dart:ui' as ui;
@@ -70,6 +72,7 @@ class _MapsState extends State<Maps>
   LatLng _centerLocation = const LatLng(41.4219057, -102.0840772);
   final _debouncer = Debouncer(milliseconds: 1000);
   Set<Circle> circles = {};
+  Set<Polyline> polyline = {};
 
   bool ischanged = false;
 
@@ -309,20 +312,25 @@ class _MapsState extends State<Maps>
 
 //get location permission and location details
   getLocs() async {
-    myBearings.clear;
+    myBearings.clear();
     addressList.clear();
     serviceEnabled = await location.serviceEnabled();
-    polyline.clear();
+    polyline.clear(); // Clear existing polylines if necessary
+
+    // Load marker icons
     final Uint8List markerIcon =
         await getBytesFromAsset('assets/images/top-taxi.png', 100);
     pinLocationIcon = BitmapDescriptor.fromBytes(markerIcon);
+
     final Uint8List deliveryIcons =
         await getBytesFromAsset('assets/images/deliveryicon.png', 40);
     deliveryIcon = BitmapDescriptor.fromBytes(deliveryIcons);
+
     final Uint8List bikeIcons =
         await getBytesFromAsset('assets/images/bike.png', 40);
     bikeIcon = BitmapDescriptor.fromBytes(bikeIcons);
 
+    // Check location permissions
     permission = await geolocs.GeolocatorPlatform.instance.checkPermission();
 
     if (permission == geolocs.LocationPermission.denied ||
@@ -339,6 +347,7 @@ class _MapsState extends State<Maps>
       _loading = false;
       setState(() {});
     } else {
+      // Get last known position
       var locs = await geolocs.Geolocator.getLastKnownPosition();
       if (locs != null) {
         setState(() {
@@ -351,6 +360,7 @@ class _MapsState extends State<Maps>
           _lastCenter = _centerLocation;
         });
       } else {
+        // If no last known position, get the current position
         var loc = await geolocs.Geolocator.getCurrentPosition(
             desiredAccuracy: geolocs.LocationAccuracy.low);
         setState(() {
@@ -364,17 +374,31 @@ class _MapsState extends State<Maps>
         });
       }
 
-      // _centerLocation = center;
-      _lastCenter = _centerLocation;
+      // Define the polyline after setting the current location
+      Polyline route = Polyline(
+        polylineId: PolylineId("route1"),
+        points: [
+          _centerLocation,
+          center, // Start point (current location)
+          LatLng(41.4239057, -102.0820772), // Example end point
+          // You can add more points to define the route as needed
+        ],
+        color: Colors.blue, // Customize the color of the polyline
+        width: 5, // Thickness of the line
+      );
 
+      // Update the state to include the new polyline
       setState(() {
-        locationAllowed = true;
-        state = '3';
-        _loading = false;
+        polyline.add(route); // Add the newly created route to the polyline set
+        locationAllowed = true; // Set location allowed to true
+        state = '3'; // Set state
+        _loading = false; // Set loading to false
       });
+
+      // Start position stream data if allowed
       if (locationAllowed == true) {
         if (positionStream == null || positionStream!.isPaused) {
-          positionStreamData();
+          positionStreamData(); // Start tracking position updates
         }
       }
     }
@@ -919,6 +943,8 @@ class _MapsState extends State<Maps>
                                                                       print(
                                                                           'Camera start moving');
                                                                     },
+                                                                    polylines:
+                                                                        polyline,
                                                                     onCameraIdle:
                                                                         () async {
                                                                       // if (addressList
@@ -1093,7 +1119,6 @@ class _MapsState extends State<Maps>
                                                                           }
                                                                         }
                                                                       },
-                                                                      // ignore: deprecated_member_use
                                                                       interactiveFlags: ~fm.InteractiveFlag.doubleTapZoom,
                                                                       initialCenter: fmlt.LatLng(center.latitude, center.longitude),
                                                                       initialZoom: 16,
@@ -4263,8 +4288,10 @@ class _MapsState extends State<Maps>
                                             alignment: Alignment.centerLeft,
                                             decoration: const BoxDecoration(
                                               image: DecorationImage(
-                                                  image: AssetImage(
-                                                      'assets/images/delivery.png')),
+                                                image: AssetImage(
+                                                  'assets/images/delivery.png',
+                                                ),
+                                              ),
                                             ),
                                           ),
                                           Expanded(
@@ -4500,3 +4527,6 @@ class _BannerImageState extends State<BannerImage> {
     );
   }
 }
+// PolylineID: PolylineID(GetLoaction:GetLocationIP(AddRoute:RouteLines(color: Colors.blue,Point[_CurrentLocation,LatLng(32.2982,_21.868),If(locationIP == null){Do not Add Any thing i don't Know what ton do Im so Much depressed }]),),)
+// Scaffold(appabar: AppBar(title: Text('I\'m alone'),centertitle: true,backgroundColor: Colors.blue, leading: IconButton(onpressed:(){Get.back;},Icon:Icon(Icons.nothing,),),),);
+// Scaffold(body:Column(children[Body: ListVeiw: children[Body:GoogleMAps:Polyline(color: Colors.blue,Red,blue,green,yellow,purple,)],],),)
