@@ -4527,6 +4527,3 @@ class _BannerImageState extends State<BannerImage> {
     );
   }
 }
-// PolylineID: PolylineID(GetLoaction:GetLocationIP(AddRoute:RouteLines(color: Colors.blue,Point[_CurrentLocation,LatLng(32.2982,_21.868),If(locationIP == null){Do not Add Any thing i don't Know what ton do Im so Much depressed }]),),)
-// Scaffold(appabar: AppBar(title: Text('I\'m alone'),centertitle: true,backgroundColor: Colors.blue, leading: IconButton(onpressed:(){Get.back;},Icon:Icon(Icons.nothing,),),),);
-// Scaffold(body:Column(children[Body: ListVeiw: children[Body:GoogleMAps:Polyline(color: Colors.blue,Red,blue,green,yellow,purple,)],],),)
